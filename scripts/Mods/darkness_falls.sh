@@ -26,10 +26,10 @@ else
 fi
 
 downloadRelease() {
-    $regex_pattern="zip$"
+    regex_pattern="zip$"
     if [[ "$DL_LINK" =~ $regex_pattern ]]; then
-        curl "$DL_LINK" --output df-mod.zip -d darknessFalls-temp/
-        unzip "$DL_LINK" -d darknessFalls-temp/
+        curl "$DL_LINK" --output df-mod.zip
+        unzip df-mod.zip -d darknessFalls-temp/
         rm df-mod.zip
     else
         git clone --progress "$DL_LINK" darknessFalls-temp/
