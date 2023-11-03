@@ -15,6 +15,8 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
+      - name: Add SHORT_SHA env property with commit short sha
+        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
       - name: Checkout
         uses: actions/checkout@v4
       - name: Set up QEMU
@@ -32,4 +34,4 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: ${{ env.REGISTRY_IMAGE }}:latest,${{ env.REGISTRY_IMAGE }}:${{github.sha}}
+          tags: ${{ env.REGISTRY_IMAGE }}:latest,${{ env.REGISTRY_IMAGE }}:${SHORT_SHA}
