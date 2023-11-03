@@ -28,7 +28,7 @@ fi
 downloadRelease() {
     regex_pattern="zip$"
     if [[ "$DL_LINK" =~ $regex_pattern ]]; then
-        if ![[ -f "$SERVER_FOLDER/Mods/$DL_LINK" ]]; then
+        if [[ ! -f "$SERVER_FOLDER/Mods/$DL_LINK" ]]; then
             touch $SERVER_FOLDER/Mods/$DL_LINK
             curl "$DL_LINK" --output df-mod.zip -d darknessFalls-temp/
             unzip "$DL_LINK" -d darknessFalls-temp/
