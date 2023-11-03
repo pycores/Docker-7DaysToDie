@@ -26,7 +26,7 @@ else
 fi
 
 downloadRelease() {
-    $regex_pattern="zip$"
+    regex_pattern="zip$"
     if [[ "$DL_LINK" =~ $regex_pattern ]]; then
         if ![[ -f $DL_LINK ]]; then
             touch $DL_LINK
