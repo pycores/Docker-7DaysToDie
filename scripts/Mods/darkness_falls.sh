@@ -35,6 +35,7 @@ downloadRelease() {
             rm df-mod.zip
         else
             echo "[Darkness Falls] Already downloaded zipped release, skipping..."
+        fi
     else
         git clone --progress "$DL_LINK" darknessFalls-temp/
     fi
